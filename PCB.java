@@ -21,4 +21,50 @@ public class PCB {
         this.waitingTime = 0;
         this.responseTime = -1; // Initialize to -1 (not responded)
     }
+    // getter
+    public String getProcessID() {
+		return processID;
+	}
+
+
+	public int getPriority() {
+		return priority;
+	}
+
+
+
+	public int getArrivalTime() {
+		return arrivalTime;
+	}
+
+
+	public int getCpuBurstTime() {
+		return cpuBurstTime;
+	}
+
+	
+	public int getStartTime() {
+		return startTime;
+	}
+
+	
+
+	public int getTerminationTime() {
+		return terminationTime;
+	}
+
+
+	public int getTurnaroundTime() {
+		return turnaroundTime;
+	}
+
+	
+	public int getWaitingTime() {
+		return waitingTime;
+	}
+
+
+	public int getResponseTime() {
+		return responseTime;
+	}
 }
