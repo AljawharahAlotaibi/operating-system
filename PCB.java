@@ -67,4 +67,15 @@ public class PCB {
 	public int getResponseTime() {
 		return responseTime;
 	}
+	public void StatusDetail(){
+	System.out.printf(" | The processID : %-4s" ,processID  );
+	System.out.printf(" | The priority : %-4d" , priority);
+	System.out.printf(" | The arrival Time : %-4d" , arrivalTime);
+	System.out.printf(" | The cpu Burst Time :%-4d" , cpuBurstTime);
+	System.out.printf(" | Starting time: %-4d" , startTime );
+	System.out.printf(" | termination time %-4d" , terminationTime );
+	System.out.printf(" | turnaround time  %-4d" , turnaroundTime);
+	System.out.printf(" | waiting time  %-4d" , waitingTime );
+	System.out.printf(" | response time %-4d" , responseTime);
+}
 }
