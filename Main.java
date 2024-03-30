@@ -34,9 +34,10 @@ static PCB[] Q2 ;
  				break;
  			case 2:
                  for (int i = 0; i < numProcesses; i++) {
-					//System.out.print( i );
+				System.out.print( i+1 );
 			 
 					Q1[i].StatusDetail();
+			 Q2[i].StatusDetail();
 			 
 				}
  				WriteReport();
