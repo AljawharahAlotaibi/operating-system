@@ -34,8 +34,10 @@ static PCB[] Q2 ;
  				break;
  			case 2:
                  for (int i = 0; i < numProcesses; i++) {
-					System.out.printf("%-3d", i + 1);
+					//System.out.print( i );
+			 
 					Q1[i].StatusDetail();
+			 
 				}
  				WriteReport();
  				break;
@@ -64,6 +66,18 @@ public static void WriteReport() throws IOException {
 				
 				outputfile.write(" ");
 			}
+	/*			for (int i = 0; i < Q2.length; i++) {
+				outputfile.write(" | The processID " +Q2[i].getProcessID()  );
+				outputfile.write(" | The priority : " +Q2[i].getPriority());
+				outputfile.write(" | The arrivalTime : " + Q2[i].getArrivalTime());
+				outputfile.write(" | The cpuBurstTime :" + Q2[i].getCpuBurstTime());
+				outputfile.write(" | Starting time: " + Q2[i].getStartTime() );
+				outputfile.write(" | termination time  " + Q2[i].getTerminationTime() );
+				outputfile.write(" | turnaround time  " + Q2[i].getTurnaroundTime());
+				outputfile.write(" | waiting time  " + Q2[i].getWaitingTime() );
+				outputfile.write(" | response time  " + Q2[i].getResponseTime() );
+				outputfile.write(" ");
+			}*/
 			//outputfile.flush();
 			outputfile.close();
 		}
