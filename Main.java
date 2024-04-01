@@ -30,7 +30,19 @@ static PCB[] Q2 ;
  			switch (answer) {
  		
  			case 1:
- 				
+ 				System.out.print("Enter the number of processes: ");
+                    int numProcesses = Integer.parseInt(scanner.nextLine());
+                    for (int i = 0; i < numProcesses; i++) {
+                        int pid = "P" + (i + 1);
+                        System.out.print("Enter priority for process " + pid + " (1 or 2): ");
+                        int priority = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Enter arrival time for process " + pid + ": ");
+                        int arrivalTime = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Enter CPU burst for process " + pid + ": ");
+                        int cpuBurst = Integer.parseInt(scanner.nextLine());
+                        PCB process = new PCB(pid, priority, arrivalTime, cpuBurst);
+                        // scheduler.addProcess(process);
+                    }
  				break;
  			case 2:
                  for (int i = 0; i < numProcesses; i++) {
