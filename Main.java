@@ -31,7 +31,7 @@ static PCB[] Q2 ;
  		
  			case 1:
  				System.out.print("Enter the number of processes: ");
-                    int numProcesses = Integer.parseInt(scanner.nextLine());
+                    // int numProcesses = Integer.parseInt(scanner.nextLine());
                     for (int i = 0; i < numProcesses; i++) {
                         int pid = "P" + (i + 1);
                         System.out.print("Enter priority for process " + pid + " (1 or 2): ");
