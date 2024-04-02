@@ -41,7 +41,7 @@ static PCB[] Q2 ;
                         System.out.print("Enter CPU burst for process " + pid + ": ");
                         int cpuBurst = Integer.parseInt(scanner.nextLine());
                         PCB process = new PCB(pid, priority, arrivalTime, cpuBurst);
-                        // scheduler.addProcess(process);
+                        Q1[i] = new PCB(pid, priority, arrivalTime, cpuBurst);
                     }
  				break;
  			case 2:
