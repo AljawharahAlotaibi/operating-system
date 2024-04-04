@@ -31,17 +31,17 @@ static PCB[] Q2 ;
  		
  			case 1:
  				System.out.print("Enter the number of processes: ");
-                    // int numProcesses = Integer.parseInt(scanner.nextLine());
+                     int numProcesses = scanner.nextInt();
                     for (int i = 0; i < numProcesses; i++) {
                         int pid = "P" + (i + 1);
                         System.out.print("Enter priority for process " + pid + " (1 or 2): ");
-                        int priority = Integer.parseInt(scanner.nextLine());
+                        int priority = scanner.nextInt();
                         System.out.print("Enter arrival time for process " + pid + ": ");
-                        int arrivalTime = Integer.parseInt(scanner.nextLine());
+                        int arrivalTime = scanner.nextInt();
                         System.out.print("Enter CPU burst for process " + pid + ": ");
-                        int cpuBurst = Integer.parseInt(scanner.nextLine());
+                        int cpuBurst = scanner.nextInt();
                         PCB process = new PCB(pid, priority, arrivalTime, cpuBurst);
-                        Q1[i] = new PCB(pid, priority, arrivalTime, cpuBurst);
+                        // addProcess(process);
                     }
  				break;
  			case 2:
@@ -94,4 +94,30 @@ public static void WriteReport() throws IOException {
 			//outputfile.flush();
 			outputfile.close();
 		}
+
+		public static void addProcess(process){
+            if (priority == 1) {
+        // Find the first null element in Q1 and add the process there
+        for (int i = 0; i < Q1.length; i++) {
+            if (Q1[i] == null) {
+                Q1[i] = process;
+                System.out.println("Added " + processID + " to Q1.");
+                return;
+            }
+        }
+    } else if (priority == 2) {
+        // Find the first null element in Q2 and add the process there
+        for (int i = 0; i < Q2.length; i++) {
+            if (Q2[i] == null) {
+                Q2[i] = process;
+                System.out.println("Added " + processID + " to Q2.");
+                return;
+            }
+        }
+    } else {
+        System.out.println("Invalid priority. Process not added.");
+    }
+}
+
+		
 }
