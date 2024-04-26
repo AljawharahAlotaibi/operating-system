@@ -21,6 +21,8 @@ public class PCB {
         this.waitingTime = 0;
         this.responseTime = -1; // Initialize to -1 (not responded)
     }
+
+
     // getter
     public String getProcessID() {
 		return processID;
@@ -67,6 +69,25 @@ public class PCB {
 	public int getResponseTime() {
 		return responseTime;
 	}
+
+
+    // Setters
+    public void setTerminationTime(int terminationTime) {
+        this.terminationTime = terminationTime;
+    }
+
+    public void setTurnaroundTime(int turnaroundTime) {
+        this.turnaroundTime = turnaroundTime;
+    }
+
+    public void setWaitingTime(int waitingTime) {
+        this.waitingTime = waitingTime;
+    }
+
+    public void setResponseTime(int responseTime) {
+        this.responseTime = responseTime;
+    }
+
 	public void StatusDetail(){
 	System.out.printf(" | The processID : %-4s" ,processID  );
 	System.out.printf(" | The priority : %-4d" , priority);

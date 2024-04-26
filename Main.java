@@ -13,22 +13,22 @@ static PCB[] Q2 ;
 public static void main(String[] args)  throws IOException {
     Scanner scanner = new Scanner(System.in);
 
-    int numProcesses;
-    //do {
-    //    System.out.print("Enter the number of processes (P): ");
-    //     while (!scanner.hasNextInt()) {
-    //         System.out.println("Invalid input. Please enter a positive integer.");
-    //         scanner.next(); // Consume the invalid input
-    //     }
-    //     numProcesses = scanner.nextInt();
-    //     if (numProcesses <= 0) {
-    //         System.out.println("Invalid input. Please enter a positive integer.");
-    //     }
-    // } while (numProcesses <= 0);
+    int numProcesses =0 ;
+    do {
+        System.out.print("Enter the number of processes (P): ");
+         while (!scanner.hasNextInt()) {
+             System.out.println("Invalid input. Please enter a positive integer.");
+             scanner.next(); // Consume the invalid input
+         }
+         numProcesses = scanner.nextInt();
+         if (numProcesses <= 0) {
+             System.out.println("Invalid input. Please enter a positive integer.");
+         }
+     } while (numProcesses <= 0);
 
     // Create arrays to represent Q1 and Q2
-    PCB[] Q1 = new PCB[numProcesses];
-    PCB[] Q2 = new PCB[numProcesses];         
+    Q1 = new PCB[numProcesses];
+    Q2 = new PCB[numProcesses];         
     
     
     int answer = 0;
@@ -43,10 +43,9 @@ public static void main(String[] args)  throws IOException {
         switch (answer) {
     
         case 1:
-            System.out.print("Enter the number of processes: ");
-                    numProcesses = scanner.nextInt();
+           
                 for (int i = 0; i < numProcesses; i++) {
-                    int pid = "P" + (i + 1);
+                    String pid = "P" + (i + 1);
                     System.out.print("Enter priority for process " + pid + " (1 or 2): ");
                     int priority = scanner.nextInt();
                     System.out.print("Enter arrival time for process " + pid + ": ");
@@ -57,7 +56,7 @@ public static void main(String[] args)  throws IOException {
                     addProcess(process);
                 }
             break;
-        case 2:[]
+        case 2:
                 for (int i = 0; i < numProcesses; i++) {
             System.out.print( i+1 );
             
@@ -108,30 +107,33 @@ public static void WriteReport() throws IOException {
         outputfile.close();
     }
 
-    public static void addProcess(process){
-        if (priority == 1) {
-    // Find the first null element in Q1 and add the process there
-    for (int i = 0; i < Q1.length; i++) {
-        if (Q1[i] == null) {
-            Q1[i] = process;
-            System.out.println("Added " + processID + " to Q1.");
-            return;
+    
+public static void addProcess(PCB process) {
+    int priority = process.getPriority();
+    String processID = process.getProcessID();
+
+    if (priority == 1) {
+        // Find the first null element in Q1 and add the process there
+        for (int i = 0; i < Q1.length; i++) {
+            if (Q1[i] == null) {
+                Q1[i] = process;
+                System.out.println("Added " + processID + " to Q1.");
+                return;
+            }
         }
-    }
-} else if (priority == 2) {
-    // Find the first null element in Q2 and add the process there
-    for (int i = 0; i < Q2.length; i++) {
-        if (Q2[i] == null) {
-            Q2[i] = process;
-            System.out.println("Added " + processID + " to Q2.");
-            return;
+    } else if (priority == 2) {
+        // Find the first null element in Q2 and add the process there
+        for (int i = 0; i < Q2.length; i++) {
+            if (Q2[i] == null) {
+                Q2[i] = process;
+                System.out.println("Added " + processID + " to Q2.");
+                return;
+            }
         }
-    }
     } else {
         System.out.println("Invalid priority. Process not added.");
     }
 }
-
 
 public static void scheduleProcesses(List<PCB> q1, List<PCB> q2) {
     // Implement RR scheduling for processes in q1
@@ -154,3 +156,4 @@ public static void scheduleProcesses(List<PCB> q1, List<PCB> q2) {
 }
 
 }//MAIN
+}
