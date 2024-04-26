@@ -14,17 +14,17 @@ public static void main(String[] args)  throws IOException {
     Scanner scanner = new Scanner(System.in);
 
     int numProcesses;
-    do {
-        System.out.print("Enter the number of processes (P): ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Invalid input. Please enter a positive integer.");
-            scanner.next(); // Consume the invalid input
-        }
-        numProcesses = scanner.nextInt();
-        if (numProcesses <= 0) {
-            System.out.println("Invalid input. Please enter a positive integer.");
-        }
-    } while (numProcesses <= 0);
+    //do {
+    //    System.out.print("Enter the number of processes (P): ");
+    //     while (!scanner.hasNextInt()) {
+    //         System.out.println("Invalid input. Please enter a positive integer.");
+    //         scanner.next(); // Consume the invalid input
+    //     }
+    //     numProcesses = scanner.nextInt();
+    //     if (numProcesses <= 0) {
+    //         System.out.println("Invalid input. Please enter a positive integer.");
+    //     }
+    // } while (numProcesses <= 0);
 
     // Create arrays to represent Q1 and Q2
     PCB[] Q1 = new PCB[numProcesses];
@@ -44,7 +44,7 @@ public static void main(String[] args)  throws IOException {
     
         case 1:
             System.out.print("Enter the number of processes: ");
-                    int numProcesses = scanner.nextInt();
+                    numProcesses = scanner.nextInt();
                 for (int i = 0; i < numProcesses; i++) {
                     int pid = "P" + (i + 1);
                     System.out.print("Enter priority for process " + pid + " (1 or 2): ");
@@ -54,11 +54,18 @@ public static void main(String[] args)  throws IOException {
                     System.out.print("Enter CPU burst for process " + pid + ": ");
                     int cpuBurst = scanner.nextInt();
                     PCB process = new PCB(pid, priority, arrivalTime, cpuBurst);
-                    // addProcess(process);
+                    addProcess(process);
                 }
             break;
-        case 2:
-             readFromFile();
+        case 2:[]
+                for (int i = 0; i < numProcesses; i++) {
+            System.out.print( i+1 );
+            
+                Q1[i].StatusDetail();
+            Q2[i].StatusDetail();
+            
+            }
+            WriteReport();
             break;
         case 3:
             System.out.println("Exiting.. ");
@@ -69,55 +76,38 @@ public static void main(String[] args)  throws IOException {
         }
     } while (answer != 3);
 }
-public static void writeInFile(){
-PCB[] array1= new PCB[numProcesses];
-for(int i=0; i<numProcesses ;i++) {
-	if(Q1[i]!=null)
-		array1[i]=Q1[i]	;
-	else if (Q2[i]!=null)
-		array1[i]=Q2[i]	;
-}
-try {
-    File f = new File("report.txt");
-    FileOutputStream f2 = new FileOutputStream(f);
-    PrintWriter outputfile= new PrintWriter(f2);
-    for (int i = 0; i < numProcesses; i++) {
-    	if(array1[i]!=null) {
-    		if(  array1[i].getProcessID().equals("P" + (i + 1) )      )
-    		outputfile.println(" The processID " +array1[i].getProcessID()  );
-            outputfile.println(" The priority : " +array1[i].getPriority());
-            outputfile.println(" The arrivalTime : " + array1[i].getArrivalTime());
-            outputfile.println(" The cpuBurstTime :" + array1[i].getCpuBurstTime());
-            outputfile.println(" Starting time: " + array1[i].getStartTime() );
-            outputfile.println(" termination time  " + array1[i].getTerminationTime() );
-            outputfile.println(" turnaround time  " + array1[i].getTurnaroundTime());
-            outputfile.println(" waiting time  " + array1[i].getWaitingTime() );
-            outputfile.println(" response time  " + array1[i].getResponseTime() );
-          
-    			
-    }
+public static void WriteReport() throws IOException {
+
+        BufferedWriter outputfile = new BufferedWriter(new FileWriter("Report.txt"));
+        for (int i = 0; i < Q1.length; i++) {
+            outputfile.write(" | The processID " +Q1[i].getProcessID()  );
+            outputfile.write(" | The priority : " +Q1[i].getPriority());
+            outputfile.write(" | The arrivalTime : " + Q1[i].getArrivalTime());
+            outputfile.write(" | The cpuBurstTime :" + Q1[i].getCpuBurstTime());
+            outputfile.write(" | Starting time: " + Q1[i].getStartTime() );
+            outputfile.write(" | termination time  " + Q1[i].getTerminationTime() );
+            outputfile.write(" | turnaround time  " + Q1[i].getTurnaroundTime());
+            outputfile.write(" | waiting time  " + Q1[i].getWaitingTime() );
+            outputfile.write(" | response time  " + Q1[i].getResponseTime() );
+            
+            outputfile.write(" ");
+        }
+/*			for (int i = 0; i < Q2.length; i++) {
+            outputfile.write(" | The processID " +Q2[i].getProcessID()  );
+            outputfile.write(" | The priority : " +Q2[i].getPriority());
+            outputfile.write(" | The arrivalTime : " + Q2[i].getArrivalTime());
+            outputfile.write(" | The cpuBurstTime :" + Q2[i].getCpuBurstTime());
+            outputfile.write(" | Starting time: " + Q2[i].getStartTime() );
+            outputfile.write(" | termination time  " + Q2[i].getTerminationTime() );
+            outputfile.write(" | turnaround time  " + Q2[i].getTurnaroundTime());
+            outputfile.write(" | waiting time  " + Q2[i].getWaitingTime() );
+            outputfile.write(" | response time  " + Q2[i].getResponseTime() );
+            outputfile.write(" ");
+        }*/
+        //outputfile.flush();
+        outputfile.close();
     }
 
-    outputfile.close();
-    
-} catch (FileNotFoundException ex) {
-	
- } catch (IOException ex) {
- 
- }   
-}
-public static void readFromFile(){
-      try{
-        File f = new File("report.txt");
-        Scanner sc = new Scanner(f);
-             while(sc.hasNext()){
-                System.out.println(sc.nextLine());
-              }
-             sc.close();
-        }catch(IOException ex){
-        
-     }
-    }
     public static void addProcess(process){
         if (priority == 1) {
     // Find the first null element in Q1 and add the process there
