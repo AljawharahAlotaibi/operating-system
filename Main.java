@@ -146,22 +146,28 @@ public static void addProcess(PCB process) {
 
         // Repeatedly iterate through Q2 until all processes are executed
         while (true) {
-            boolean allProcessesExecuted = false; // Flag to track if all processes are executed in this iteration
+            boolean allProcessesExecuted = false; // Assume all processes are executed in this iteration
+            boolean processExecuted = false; // Track if any process is executed in this iteration
             for (int i = 0; i < Q2.length; i++) {
                 PCB process = Q2[i];
                 if (process != null && process.getArrivalTime() <= currentTime) {
                     allProcessesExecuted = false; // At least one process is not executed in this iteration
+                    processExecuted = true; // A process is executed in this iteration
                     excuteProcess(process); // Execute the process for its CPU burst time
                     remove(Q2, i); 
-                } else {
-                    if(!processArriveAtQ1()){ //check q1 if there is arrival excute it,if not only increment time
-                        currentTime++;
+                }else {
+                    if(processArriveAtQ1()){ //check q1 if there is arrival excute it and don't twice increment time
+                        processExecuted = true; // A process is executed in this iteration
                     }
                 }
             }
-            if(allProcessesExecuted){
-                //All processes excuted, exit the loop
+            if (allProcessesExecuted) {
+                // All processes executed, exit the loop
                 break;
+            }
+            if (!processExecuted) {
+                // No process executed, increment currentTime
+                currentTime++;
             }
         }
         
@@ -173,13 +179,9 @@ public static void addProcess(PCB process) {
         //for each ms of the time 
         for(int i=0;i<cpuBurst;i++){ 
         System.out.println("Running process " + process.getProcessID() + "  with priority 2");
-        process.setCpuBurstTime( process.getCpuBurstTime()-i ); //could not be necessary !!
-        processArriveAtQ1(); //check q1 if there is arrival, excute it
-        
-        if (i == cpuBurst - 1) //last iteration
-                continue;
-                        
         currentTime++;    
+        process.setCpuBurstTime( process.getCpuBurstTime()-i ); //could not be necessary !!
+        processArriveAtQ1(); //check q1 if there is arrival, excute it                
         }
     }
 
