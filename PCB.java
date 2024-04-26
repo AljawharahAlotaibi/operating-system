@@ -87,6 +87,9 @@ public class PCB {
     public void setResponseTime(int responseTime) {
         this.responseTime = responseTime;
     }
+    public void setCpuBurstTime(int cpuBurst){
+        this.cpuBurstTime=cpuBurst;
+    }
 
 	public void StatusDetail(){
 	System.out.printf(" | The processID : %-4s" ,processID  );
