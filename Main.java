@@ -153,6 +153,7 @@ public static void addProcess(PCB process) {
                     processExecuted = true; // A process is executed in this iteration
                     excuteProcess(process); // Execute the process for its CPU burst time
                     remove(Q2, i); 
+                    break;
                 }else {
                     if(processArriveAtQ1()){ //check q1 if there is arrival excute it and don't twice increment time
                         processExecuted = true; // A process is executed in this iteration
