@@ -146,12 +146,10 @@ public static void addProcess(PCB process) {
 
         // Repeatedly iterate through Q2 until all processes are executed
         while (true) {
-            boolean allProcessesExecuted = false; // Assume all processes are executed in this iteration
             boolean processExecuted = false; // Track if any process is executed in this iteration
             for (int i = 0; i < Q2.length; i++) {
                 PCB process = Q2[i];
                 if (process != null && process.getArrivalTime() <= currentTime) {
-                    allProcessesExecuted = false; // At least one process is not executed in this iteration
                     processExecuted = true; // A process is executed in this iteration
                     excuteProcess(process); // Execute the process for its CPU burst time
                     remove(Q2, i); 
@@ -161,7 +159,7 @@ public static void addProcess(PCB process) {
                     }
                 }
             }
-            if (allProcessesExecuted) {
+            if (empty(Q2) && empty(Q1)) {
                 // All processes executed, exit the loop
                 break;
             }
@@ -180,11 +178,20 @@ public static void addProcess(PCB process) {
         for(int i=0;i<cpuBurst;i++){ 
         System.out.println("Running process " + process.getProcessID() + "  with priority 2");
         currentTime++;    
-        process.setCpuBurstTime( process.getCpuBurstTime()-i ); //could not be necessary !!
+        process.setCpuBurstTime( process.getCpuBurstTime()-1 ); //could not be necessary !!
         processArriveAtQ1(); //check q1 if there is arrival, excute it                
         }
     }
 
+    public static boolean empty(PCB[] array) {
+        boolean empty = true;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null)
+                empty = false;
+        }
+        return empty;
+    }
+    
     public static boolean processArriveAtQ1(){
         for (int i = 0; i < Q1.length; i++){
             if (Q1[i] != null && Q1[i].getArrivalTime() <= currentTime){
