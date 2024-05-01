@@ -14,18 +14,12 @@ java Main
 4- Choose the desired menu option to view scheduling details and criteria.
 
 
-## Student Names and IDs
-
-- **Team Leader:** [Team Leader Name] - [Student ID]
-- [Aljawharah Alotaibi] - [443200509]
-- [Team Member 2 Name] - [Student ID]
-- [Team Member 3 Name] - [Student ID]
-
 ## Task Distribution
 
 | Task Description                             | Assigned To          |
 |----------------------------------------------|----------------------|
-| Implement RR scheduling algorithm            | [Team Member 1 Name] |
-| Implement SJF scheduling algorithm           | [Team Member 2 Name] |
-| Write README.md file                          | [Team Leader Name]   |
-| Generate sample input/output screenshots     | [Team Member 3 Name] |
+| Implement SJF scheduling algorithm           | [Aljawharah] |
+| Implement RR scheduling algorithm            | [Danah] |
+| read and write on report.text                | [Afnan]   |
+| Structure code                               | [Shahad] |
+| Creating the process                         | [Albatool] |
