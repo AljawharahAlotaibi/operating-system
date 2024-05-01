@@ -4,7 +4,7 @@ The Multilevel Queue (MLQ) scheduling algorithm implemented in this project aims
 
 ## How to run
 1- clone the repository:
-git clone https://github.com/yourusername/operating-system.git
+git clone https://github.com/AljawharahAlotaibi/operating-system.git
 
 2- Run the program:
 java Main
