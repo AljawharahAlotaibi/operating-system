@@ -1,0 +1,25 @@
+ The priority : 1
+ The arrivalTime : 15
+ The cpuBurstTime :1
+ Starting time: 16
+ termination time  17
+ turnaround time  2
+ waiting time  1
+ response time  1
+ The processID P2
+ The priority : 1
+ The arrivalTime : 10
+ The cpuBurstTime :7
+ Starting time: 10
+ termination time  19
+ turnaround time  9
+ waiting time  2
+ response time  0
+ The priority : 2
+ The arrivalTime : 7
+ The cpuBurstTime :10
+ Starting time: 7
+ termination time  25
+ turnaround time  18
+ waiting time  8
+ response time  0
